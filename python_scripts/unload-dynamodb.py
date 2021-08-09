@@ -29,5 +29,5 @@ print(address_dataframe)
 csv_buffer = StringIO()
 address_dataframe.to_csv(csv_buffer)
 s3_resource = boto3.resource('s3',
-    region_name='ap-southeast-1')
-s3_resource.Object("seed-data-lake", 'address.csv').put(Body=csv_buffer.getvalue())
+    region_name='us-east-1')
+s3_resource.Object("usecase-data-lake", 'address.csv').put(Body=csv_buffer.getvalue())
