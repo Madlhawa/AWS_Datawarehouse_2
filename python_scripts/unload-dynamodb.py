@@ -4,7 +4,7 @@ import pandas as pd
 from io import StringIO # python3; python2: BytesIO 
 
 dynamodb = boto3.resource('dynamodb',
-    region_name='ap-southeast-1'
+    region_name='us-east-1'
 )
 table = dynamodb.Table('address')
 
