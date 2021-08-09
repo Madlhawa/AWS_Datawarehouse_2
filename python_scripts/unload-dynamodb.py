@@ -6,7 +6,7 @@ from io import StringIO # python3; python2: BytesIO
 dynamodb = boto3.resource('dynamodb',
     region_name='ap-southeast-1'
 )
-table = dynamodb.Table('Address')
+table = dynamodb.Table('address')
 
 response = table.scan(
     Select="ALL_ATTRIBUTES",
