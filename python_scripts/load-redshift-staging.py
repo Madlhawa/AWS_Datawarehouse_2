@@ -15,7 +15,7 @@ config.read('./utility/config.ini')
 engine = create_engine(f'postgresql://{config["redshift"]["username"]}:{config["redshift"]["password"]}@redshift-cluster.cy8zz3a1tpnj.us-east-1.redshift.amazonaws.com:5439/dev')
 
 with engine.connect() as connection:
-    query = f"truncate table staging.{table}; copy staging.{table} from 's3://usecase-data-lake/{sourceFile}' iam_role 'arn:aws:iam::587889776762:role/redshift' DELIMITER ',' TIMEFORMAT 'auto';"
+    query = f"truncate table staging.{table}; copy staging.{table} from 's3://usecase-data-lake/{sourceFile}' iam_role 'arn:aws:iam::587889776762:role/redshift' DELIMITER '|' TIMEFORMAT 'auto';"
     result = connection.execute(query)
     
 print(f'{table} loaded successfully')
