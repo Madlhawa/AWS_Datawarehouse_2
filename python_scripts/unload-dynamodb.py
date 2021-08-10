@@ -31,4 +31,4 @@ print(csv_buffer)
 
 s3_resource = boto3.resource('s3',
     region_name='us-east-1')
-s3_resource.Object("usecase-data-lake", 'addresss').put(Body=csv_buffer.getvalue())
+s3_resource.Object("usecase-data-lake", 'address').put(Body=csv_buffer.getvalue())
