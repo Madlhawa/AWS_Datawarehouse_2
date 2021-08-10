@@ -26,9 +26,8 @@ address_dataframe = address_dataframe[address_dataframe.eval('Street != "NULL" &
 
 csv_buffer = StringIO()
 address_dataframe.to_csv(csv_buffer, sep ='|', header=False, index=False)
-
-print(csv_buffer)
-
 s3_resource = boto3.resource('s3',
     region_name='us-east-1')
 s3_resource.Object("usecase-data-lake", 'address').put(Body=csv_buffer.getvalue())
+
+print('address unloaded')
