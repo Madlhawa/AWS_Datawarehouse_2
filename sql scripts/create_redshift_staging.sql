@@ -40,7 +40,7 @@ CREATE TABLE staging.product (
 );
 
 CREATE TABLE staging.address (
-    CustomerID  INT NOT NULL,
+    CustomerID  INT,
     Country     nvarchar(50),
     AddressType  nvarchar(50),
     Street  nvarchar(50),
