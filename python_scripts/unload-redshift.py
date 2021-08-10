@@ -17,6 +17,4 @@ engine = create_engine(f'postgresql://{config["redshift"]["username"]}:{config["
 with engine.connect() as connection:
         query = f"unload('select * from source.{table}') to 's3://usecase-data-lake/{table}' iam_role 'arn:aws:iam::587889776762:role/redshift' parallel off allowoverwrite csv;"
         result = connection.execute(query)
-        print(f'loding table {table}')
-
-print(result)
+        print(f'{table} table unloaded.')
