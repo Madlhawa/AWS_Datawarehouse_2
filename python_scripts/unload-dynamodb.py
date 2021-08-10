@@ -25,10 +25,10 @@ address_dataframe = address_dataframe.join(address_dataframe['Address'].apply(js
 address_dataframe = address_dataframe[address_dataframe.eval('Street != "NULL" & PostalCode != "NULL" & City != "NULL" & StateProvinceName != "NULL"')]
 
 csv_buffer = StringIO()
-address_dataframe.to_csv(csv_buffer, header=False, index=False, sep ='|')
+address_dataframe.to_csv(csv_buffer, sep ='|', header=False, index=False)
 
 print(csv_buffer)
 
 s3_resource = boto3.resource('s3',
     region_name='us-east-1')
-s3_resource.Object("usecase-data-lake", 'address').put(Body=csv_buffer.getvalue())
+s3_resource.Object("usecase-data-lake", 'addresss').put(Body=csv_buffer.getvalue())
