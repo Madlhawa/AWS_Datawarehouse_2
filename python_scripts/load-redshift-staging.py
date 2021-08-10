@@ -2,15 +2,15 @@ import sys
 from sqlalchemy import create_engine
 from configparser import ConfigParser
 
-config = ConfigParser()
-config.read('config.ini')
-
 try:
     sourceFile = sys.argv[1]
     table = sys.argv[2]
 except:
     print("ERROR: Table name argument not passed.")
     quit()
+
+config = ConfigParser()
+config.read('./utility/config.ini')
 
 engine = create_engine(f'postgresql://{config["redshift"]["username"]}:{config["redshift"]["password"]}@redshift-cluster.cy8zz3a1tpnj.us-east-1.redshift.amazonaws.com:5439/dev')
 
