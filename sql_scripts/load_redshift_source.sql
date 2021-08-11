@@ -17,7 +17,7 @@ DELIMITER ','
 IGNOREHEADER 1 
 TIMEFORMAT 'auto';
 
-copy source.productCategory
+copy source.productcategory
 from 's3://usecase-source-data/productCategories.csv'
 iam_role 'arn:aws:iam::587889776762:role/redshift'
 DELIMITER ',' 
