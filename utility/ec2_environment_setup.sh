@@ -15,4 +15,7 @@ sudo apt install python2-minimal
 sudo apt install default-jre
 sudo apt install default-jdk
 
-java -jar TaskRunner-1.0.jar --config ~/credentials.json --workerGroup=madhawa --region=us-east-1 --logUri=s3://usecase-data-pipeline/output/
+sudo apt install openjdk-8-jdk
+sudo apt install openjdk-8-jre
+
+java -jar ~/TaskRunner-1.0.jar --config ~/credentials.json --workerGroup=madhawa --region=us-east-1 --logUri=~/output/ 

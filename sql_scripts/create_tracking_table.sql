@@ -10,21 +10,9 @@ CREATE TABLE public.trackingtable (
 
 DELETE FROM public.trackingtable WHERE data_group = 'usecase';
 
-INSERT INTO public.trackingtable(
-    data_group, 
-    data_pipeline_id,  
-    job_status,  
-    proc_start_dt,  
-    proc_start_tm
-)
-VALUES(
-    'usecase',
-    '123',
-    'r',
-    CONVERT(VARCHAR(10), getdate(), 111),
-    convert(varchar(10), GETDATE(), 108)
-)
+INSERT INTO public.trackingtable(data_group, data_pipeline_id,  job_status,  proc_start_dt, proc_start_tm)
+VALUES('usecase','123','r',CAST(getdate() AS date),CAST(getdate() AS time));
 
 UPDATE public.trackingtable
-SET job_status = 'c', proc_end_dt = CONVERT(VARCHAR(10), getdate(), 111), proc_end_tm = convert(varchar(10), GETDATE(), 108)
+SET job_status = 'c', proc_end_dt = CAST(getdate() AS date), proc_end_tm = CAST(getdate() AS time)
 WHERE data_group = 'usecase';
